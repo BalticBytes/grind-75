@@ -36,8 +36,11 @@ func main() {
 		src := problems[i]
 		xs := strings.Split(src, "/")
 		slug := xs[len(xs)-1]
-
-		path := fmt.Sprintf("../../%d-%s/", i+1, slug)
+		prefix := ""
+		if i < 10 {
+			prefix = "0"
+		}
+		path := fmt.Sprintf("../../%s%d-%s/", prefix, i+1, slug)
 		fmt.Println(path)
 
 		response := queryLeetcode(slug)
