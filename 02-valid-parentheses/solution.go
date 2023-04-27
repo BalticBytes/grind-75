@@ -30,8 +30,7 @@ func solve(s string) bool {
 			if 0 < len(stack) && peek() == r {
 				pop()
 			} else {
-				// hack to pass }} sequences
-				push(0)
+				return false // fail fast, invalid sequence of parentheses
 			}
 		}
 	}
